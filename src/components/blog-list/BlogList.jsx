@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Chip from "../Chip/Chip";
+
 const BlogList = ({ blogs }) => {
     return (
       <div className="blog-list">
@@ -7,6 +9,7 @@ const BlogList = ({ blogs }) => {
             <Link to={`/blogs/${blog.id}`}>
             <h2>{ blog.title }</h2>
             <p>Written by { blog.author }</p>
+            <Chip label={blog.body} />
             </Link>
           </div>
         ))}

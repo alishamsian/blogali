@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 const Create = () => {
     const [title, setTitle] = useState();
     const [body, setBody] = useState();
-    const [author, setAuthor] = useState('kafa');
+    const [author, setAuthor] = useState('ali shamsian');
     const [ispending, setIspending] = useState(false);
     const history = useHistory();
     const handleSubmit = (e) => {
@@ -16,7 +16,6 @@ const Create = () => {
             headers: {"Content-type": "application/json"},
             body:JSON.stringify(blog)
         }).then(()=>{
-            console.log('new blog added');
             setIspending(false);
             //history.go(-1);
             history.push('/');
@@ -28,21 +27,21 @@ const Create = () => {
         <div className="create">
             <h2>Add a new Blog</h2>
             <form onSubmit={handleSubmit}>
-                <label>Blog Title:</label>
                 <input 
+                placeholder="Write the title ..."
                 type="text" 
                 required
                 value = {title}
                 onChange = {(e) => setTitle(e.target.value)}
                 />
-                <label>Blog Body:</label>
-                <textarea 
+                <textarea
+                placeholder="Write your post ..." 
                 required
                 value = {body}
                 onChange = {(e) => setBody(e.target.value)}
                 />
-                <label>Blog Author:</label>
                <select
+                placeholder="Blog Author"
                 value = {author}
                 onChange = {(e) => setAuthor(e.target.value)}
                >
